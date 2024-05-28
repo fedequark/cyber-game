@@ -1,0 +1,6 @@
+question,result,text,conclusion
+"Detección del Incidente","Evaluación de la Gravedad","Sí, ha ocurrido un incidente","Un incidente ha sido detectado y está siendo evaluado."
+"Detección del Incidente","fin","No, es una falsa alarma","No se detectó ningún incidente real. No se requieren acciones adicionales."
+"Evaluación de la Gravedad","Acciones Alto Riesgo","Alto riesgo (ataque ransomware activo)","Se ha detectado un ataque de ransomware activo, es necesario una respuesta inmediata."
+"Evaluación de la Gravedad","Acciones Medio/Bajo Riesgo","Riesgo medio (intento de phishing sin éxito)","Se detectó un intento de phishing, pero no fue exitoso. Se recomienda vigilancia."
+"Evaluación de la Gravedad","Acciones Medio/Bajo Riesgo","Bajo riesgo (malware detectado y contenido)","Se detectó malware pero ha sido contenido sin mayores incidentes."

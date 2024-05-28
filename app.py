@@ -1,35 +1,27 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, session
 
 app = Flask(__name__)
+app.secret_key = 'tu_clave_secreta_aleatoria'
 
-# Página inicial que muestra las opciones iniciales del juego
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    session['report'] = []  # Iniciar o reiniciar el reporte
+    first_node = tree_data[0]
+    return render_template('decision.html', question=first_node['question'], options=first_node['options'])
 
-# Ruta para manejar la lógica de la elección del usuario
-@app.route('/handle_data', methods=['POST'])
-def handle_data():
-    choice = request.form['choice']
-    if choice == 'option1':
-        return redirect(url_for('out1'))
-    elif choice == 'option2':
-        return redirect(url_for('out2'))
-    else:
-        return redirect(url_for('out3'))
+@app.route('/handle_decision', methods=['POST'])
+def handle_decision():
+    choice = request.form['decision']
+    for node in tree_data:
+        if node['result'] == choice:
+            session['report'].append(node['conclusion'])  # Agregar conclusión al reporte
+            return render_template('decision.html', question=node['question'], options=node['options'])
+    return redirect(url_for('conclusion'))
 
-# Páginas de resultados
-@app.route('/outcome_one')
-def outcome_one():
-    return render_template('out1.html')
+@app.route('/conclusion', methods=['GET'])
+def conclusion():
+    report = " ".join(session['report'])  # Combinar todas las conclusiones
+    return render_template('conclusion.html', message=report)
 
-@app.route('/outcome_two')
-def outcome_two():
-    return render_template('out2.html')
-
-@app.route('/outcome_three')
-def outcome_three():
-    return render_template('out3.html')
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
