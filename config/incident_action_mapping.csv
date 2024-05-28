@@ -1,0 +1,19 @@
+Incident,Step,Substep,Action,Time,Resource Cost,Consequence
+Ransomware Attack,1,Isolate infected systems,Analyze Network Traffic,5,"{'financial': 10, 'human': 5, 'technological': 2}",Partial containment
+Ransomware Attack,1,Isolate infected systems,Isolate Server,2,"{'financial': 3, 'human': 2, 'technological': 1}",Partial containment
+Ransomware Attack,2,Analyze the attack vector,Conduct Forensic Analysis,6,"{'financial': 8, 'human': 5, 'technological': 3}",Identify the source
+Ransomware Attack,2,Analyze the attack vector,Inform Authorities,1,"{'financial': 1, 'human': 1, 'technological': 0}",Identify the source
+Ransomware Attack,3,Restore from backups,Restore from Backup,7,"{'financial': 15, 'human': 7, 'technological': 5}",Data restoration
+Ransomware Attack,3,Restore from backups,Notify Affected Clients,2,"{'financial': 2, 'human': 1, 'technological': 0}",Data restoration
+Phishing,1,Identify suspicious email,Review Audit Logs,4,"{'financial': 4, 'human': 3, 'technological': 1}",Email identified
+Phishing,1,Identify suspicious email,Train Employees,5,"{'financial': 3, 'human': 5, 'technological': 0}",Email identified
+Phishing,2,Analyze email headers,Analyze Network Traffic,3,"{'financial': 5, 'human': 2, 'technological': 3}",Header analysis
+Phishing,2,Analyze email headers,Inform Authorities,1,"{'financial': 1, 'human': 1, 'technological': 0}",Header analysis
+Phishing,3,Check for compromised accounts,Change Passwords,2,"{'financial': 2, 'human': 1, 'technological': 0}",Account check
+Phishing,3,Check for compromised accounts,Notify Affected Clients,2,"{'financial': 2, 'human': 1, 'technological': 0}",Account check
+DDoS Attack,1,Analyze network traffic,Analyze Network Traffic,5,"{'financial': 8, 'human': 5, 'technological': 3}",Traffic analysis
+DDoS Attack,1,Analyze network traffic,Inform Authorities,1,"{'financial': 1, 'human': 1, 'technological': 0}",Traffic analysis
+DDoS Attack,2,Implement traffic filters,Apply Security Patches,4,"{'financial': 7, 'human': 4, 'technological': 3}",Filter implementation
+DDoS Attack,2,Implement traffic filters,Update Security Policies,5,"{'financial': 6, 'human': 5, 'technological': 2}",Filter implementation
+DDoS Attack,3,Apply mitigation strategies,Implement Traffic Filters,6,"{'financial': 10, 'human': 6, 'technological': 5}",Mitigation applied
+DDoS Attack,3,Apply mitigation strategies,Conduct Forensic Analysis,6,"{'financial': 8, 'human': 5, 'technological': 3}",Mitigation applied

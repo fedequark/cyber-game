@@ -1,0 +1,11 @@
+Name,Description,Impact,Step,Substep,Time,Resource Cost,Consequence
+Ransomware Attack,A ransomware has encrypted company files and demands a ransom.,High,1,Isolate infected systems,5,10,Partial containment
+Ransomware Attack,A ransomware has encrypted company files and demands a ransom.,High,2,Analyze the attack vector,3,5,Identify the source
+Ransomware Attack,A ransomware has encrypted company files and demands a ransom.,High,3,Restore from backups,7,15,Data restoration
+Phishing,An employee received a suspicious email attempting to obtain confidential information.,Medium,1,Identify suspicious email,2,2,Email identified
+Phishing,An employee received a suspicious email attempting to obtain confidential information.,Medium,2,Analyze email headers,3,3,Header analysis
+Phishing,An employee received a suspicious email attempting to obtain confidential information.,Medium,3,Check for compromised accounts,4,5,Account check
+DDoS Attack,A critical website is being attacked with malicious traffic to make it inaccessible.,High,1,Analyze network traffic,5,8,Traffic analysis
+DDoS Attack,A critical website is being attacked with malicious traffic to make it inaccessible.,High,2,Implement traffic filters,3,5,Filter implementation
+DDoS Attack,A critical website is being attacked with malicious traffic to make it inaccessible.,High,3,Apply mitigation strategies,6,10,Mitigation applied
+# Add more incidents similarly...

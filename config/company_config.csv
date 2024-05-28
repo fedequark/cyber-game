@@ -1,0 +1,39 @@
+Field,Option
+Company Size,Small
+Company Size,Medium
+Company Size,Large
+Company Size,Corporation
+Industry,Finance
+Industry,Health
+Industry,Technology
+Industry,Manufacturing
+Industry,Retail
+Industry,Education
+Industry,Government
+Industry,Energy
+Industry,Transportation
+Industry,Telecommunications
+Industry,Agriculture
+Industry,Tourism
+Industry,Media
+Industry,Professional Services
+Cloud Services,AWS
+Cloud Services,Azure
+Cloud Services,Google Cloud
+Cloud Services,IBM Cloud
+Cloud Services,Oracle Cloud
+Cloud Services,None
+Security Policies,Internal Security Policy
+Security Policies,Incident Response Plan
+Security Policies,Security Awareness Program
+Security Policies,Regular Security Audits
+Compliance and Regulations,GDPR
+Compliance and Regulations,ISO 27001
+Compliance and Regulations,HIPAA
+Compliance and Regulations,PCI DSS
+Compliance and Regulations,SOX
+Compliance and Regulations,NIST
+Compliance and Regulations,CCPA
+Compliance and Regulations,FERPA
+Compliance and Regulations,FISMA
+Compliance and Regulations,CSA STAR

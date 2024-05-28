@@ -1,0 +1,14 @@
+Action,Description,Time,Resource Cost
+Analyze Network Traffic,Use analysis tools to identify malicious traffic.,3,5
+Isolate Server,Disconnect the affected server from the network to prevent spread.,2,3
+Restore from Backup,Recover systems from a pre-incident backup.,7,10
+Inform Authorities,Notify relevant authorities about the incident.,1,1
+Review Audit Logs,Examine logs to identify suspicious activities.,4,4
+Update Security Policies,Review and improve existing security policies.,5,6
+Apply Security Patches,Apply security updates to close vulnerabilities.,4,7
+Conduct Forensic Analysis,Investigate the incident to determine the scope and origin of the attack.,6,8
+Notify Affected Clients,Inform clients about the incident and its potential impacts.,2,2
+Disconnect Compromised Devices,Disconnect affected devices to stop malicious activity.,3,5
+Update Antivirus Software,Install and update antivirus software on all systems.,4,6
+Train Employees,Conduct training sessions to educate employees about security.,5,3
+Change Passwords,Require all employees to change their passwords immediately.,2,2

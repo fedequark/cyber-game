@@ -3,6 +3,7 @@
 Explicación del Juego y Reglas
 Objetivo del Juego:
 El objetivo del juego es gestionar una empresa y resolver incidentes de ciberseguridad de manera efectiva. Los jugadores deben tomar decisiones estratégicas y tácticas para mitigar incidentes, administrar recursos y mantener la seguridad de la empresa.
+
 Cómo Jugar:
 1.	Configuración Inicial:
 •	Al iniciar el juego, se te ofrecerá la opción de usar parámetros aleatorios para la configuración de la empresa y del jugador.
