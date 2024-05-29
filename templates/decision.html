@@ -11,8 +11,7 @@
     <form action="{{ url_for('handle_decision') }}" method="post">
         {% for option in node.options %}
         <label>
-            <input type="radio" name="decision" value="{{ option.result }}" required>{{ option.text }}
-            <input type="hidden" name="decision_text" value="{{ option.text }}">
+            <input type="radio" name="decision_text" value="{{ option.text }}" required>{{ option.text }}
         </label><br>
         {% endfor %}
         <button type="submit">Submit</button>

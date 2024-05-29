@@ -5,41 +5,35 @@ app = Flask(__name__)
 app.secret_key = 'your_random_secret_key'
 
 # Cargar los datos del árbol de decisiones
-tree_data = load_tree_data('decision_tree.csv')
+tree_data = load_tree_data('decision_tree.json')
 
 @app.route('/')
 def index():
     session.clear()  # Limpiar la sesión antes de empezar
     session['report'] = []  # Iniciar o reiniciar el reporte
-    first_node = tree_data[0]
-    return render_template('decision.html', node=first_node)
+    session['current_node'] = tree_data
+    return render_template('decision.html', node=tree_data)
 
 @app.route('/handle_decision', methods=['POST'])
 def handle_decision():
-    choice = request.form['decision']
-    print("Decisión tomada:", choice)  # Depuración
-
-    if choice == "fin":
-        # Si la decisión es "fin", agrega la conclusión correspondiente y redirige a la página de conclusiones
-        conclusion = next((opt['conclusion'] for node in tree_data for opt in node['options'] if opt['result'] == "fin" and opt['text'] == request.form['decision_text']), None)
-        if conclusion:
-            session['report'].append(conclusion)
-            print("Conclusión final agregada:", conclusion)  # Depuración
-        session.modified = True  # Marcar la sesión como modificada
-        return redirect(url_for('conclusion'))
+    decision_text = request.form['decision_text']
+    current_node = session.get('current_node', tree_data)
     
-    next_node = next((item for item in tree_data if item['question'] == choice), None)
+    next_node = None
+    for option in current_node['options']:
+        if option['text'] == decision_text:
+            if 'next' in option:
+                next_node = option['next']
+            else:
+                session['report'].append(option['conclusion'])
+                return redirect(url_for('conclusion'))
+            break
     
     if next_node:
-        # Encontrar la opción correspondiente y agregar la conclusión
-        option = next((opt for opt in next_node['options'] if opt['result'] == choice), None)
-        if option:
-            session['report'].append(option['conclusion'])
-            print("Conclusión agregada:", option['conclusion'])  # Depuración
+        session['current_node'] = next_node
         session.modified = True  # Marcar la sesión como modificada
         return render_template('decision.html', node=next_node)
     else:
-        # Si no se encuentra un siguiente nodo, redirigir a la página de conclusión
         print("No se encontró el siguiente nodo, redirigiendo a conclusión")
         return redirect(url_for('conclusion'))
 

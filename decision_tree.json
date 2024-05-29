@@ -1,0 +1,65 @@
+{
+  "question": "¿Has detectado un posible incidente de seguridad?",
+  "options": [
+    {
+      "text": "Sí, ha ocurrido un incidente",
+      "next": {
+        "question": "Evalúa la gravedad del incidente",
+        "options": [
+          {
+            "text": "Alto riesgo (ataque ransomware activo)",
+            "next": {
+              "question": "Elige una acción inicial adecuada",
+              "options": [
+                {
+                  "text": "Aislar la red afectada",
+                  "conclusion": "La red afectada ha sido aislada para evitar la propagación del ataque."
+                },
+                {
+                  "text": "Preservar evidencia y continuar con operaciones limitadas",
+                  "conclusion": "La evidencia ha sido preservada y las operaciones continúan limitadamente."
+                }
+              ]
+            }
+          },
+          {
+            "text": "Riesgo medio (intento de phishing sin éxito)",
+            "next": {
+              "question": "Selecciona los pasos a seguir",
+              "options": [
+                {
+                  "text": "Escalar el incidente al equipo de respuesta",
+                  "conclusion": "El incidente ha sido escalado al equipo de respuesta para un manejo adecuado."
+                },
+                {
+                  "text": "Aplicar correcciones y monitorear",
+                  "conclusion": "Se aplicaron correcciones y se está monitoreando la situación."
+                }
+              ]
+            }
+          },
+          {
+            "text": "Bajo riesgo (malware detectado y contenido)",
+            "next": {
+              "question": "Selecciona los pasos a seguir",
+              "options": [
+                {
+                  "text": "Escalar el incidente al equipo de respuesta",
+                  "conclusion": "El incidente ha sido escalado al equipo de respuesta para un manejo adecuado."
+                },
+                {
+                  "text": "Aplicar correcciones y monitorear",
+                  "conclusion": "Se aplicaron correcciones y se está monitoreando la situación."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "No, es una falsa alarma",
+      "conclusion": "No se detectó ningún incidente real. No se requieren acciones adicionales."
+    }
+  ]
+}

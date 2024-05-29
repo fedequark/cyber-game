@@ -1,14 +1,14 @@
-question,result,text,conclusion
-"Detección del Incidente","Evaluación de la Gravedad","Sí, ha ocurrido un incidente","Un incidente ha sido detectado y está siendo evaluado."
-"Detección del Incidente","fin","No, es una falsa alarma","No se detectó ningún incidente real. No se requieren acciones adicionales."
-"Evaluación de la Gravedad","Acciones Alto Riesgo","Alto riesgo (ataque ransomware activo)","Se ha detectado un ataque de ransomware activo, es necesario una respuesta inmediata."
-"Evaluación de la Gravedad","Acciones Medio/Bajo Riesgo","Riesgo medio (intento de phishing sin éxito)","Se detectó un intento de phishing, pero no fue exitoso. Se recomienda vigilancia."
-"Evaluación de la Gravedad","Acciones Medio/Bajo Riesgo","Bajo riesgo (malware detectado y contenido)","Se detectó malware pero ha sido contenido sin mayores incidentes."
-"Acciones Alto Riesgo","Respuesta y Recuperación Alto/Medio","Aislar la red afectada","La red afectada ha sido aislada para evitar la propagación del ataque."
-"Acciones Alto Riesgo","Respuesta y Recuperación Alto/Medio","Preservar evidencia y continuar con operaciones limitadas","La evidencia ha sido preservada y las operaciones continúan limitadamente."
-"Acciones Medio/Bajo Riesgo","Respuesta y Recuperación Alto/Medio","Escalar el incidente al equipo de respuesta","El incidente ha sido escalado al equipo de respuesta para un manejo adecuado."
-"Acciones Medio/Bajo Riesgo","Respuesta y Recuperación Bajo","Aplicar correcciones y monitorear","Se aplicaron correcciones y se está monitoreando la situación."
-"Respuesta y Recuperación Alto/Medio","fin","Implementar plan de recuperación de desastres","El plan de recuperación de desastres ha sido implementado exitosamente."
-"Respuesta y Recuperación Alto/Medio","fin","Realizar análisis forense detallado","Se ha realizado un análisis forense detallado del incidente."
-"Respuesta y Recuperación Bajo","fin","Reforzar las defensas y realizar formación de concienciación","Se reforzaron las defensas y se realizó formación de concienciación."
-"Respuesta y Recuperación Bajo","fin","Cerrar el incidente","El incidente ha sido cerrado exitosamente."
+id,parent_id,question,text,result,conclusion,type,level
+1,,Detección del Incidente,Sí, ha ocurrido un incidente,2,,question,1
+2,,Detección del Incidente,No, es una falsa alarma,fin,No se detectó ningún incidente real. No se requieren acciones adicionales.,end,1
+3,1,Evaluación de la Gravedad,Alto riesgo (ataque ransomware activo),4,,question,2
+4,1,Evaluación de la Gravedad,Riesgo medio (intento de phishing sin éxito),5,,question,2
+5,1,Evaluación de la Gravedad,Bajo riesgo (malware detectado y contenido),6,,question,2
+6,3,Acciones Alto Riesgo,Aislar la red afectada,fin,La red afectada ha sido aislada para evitar la propagación del ataque.,end,3
+7,3,Acciones Alto Riesgo,Preservar evidencia y continuar con operaciones limitadas,fin,La evidencia ha sido preservada y las operaciones continúan limitadamente.,end,3
+8,4,Acciones Medio/Bajo Riesgo,Escalar el incidente al equipo de respuesta,fin,El incidente ha sido escalado al equipo de respuesta para un manejo adecuado.,end,3
+9,5,Acciones Medio/Bajo Riesgo,Aplicar correcciones y monitorear,fin,Se aplicaron correcciones y se está monitoreando la situación.,end,3
+10,6,Respuesta y Recuperación Alto/Medio,Implementar plan de recuperación de desastres,fin,El plan de recuperación de desastres ha sido implementado exitosamente.,end,4
+11,6,Respuesta y Recuperación Alto/Medio,Realizar análisis forense detallado,fin,Se ha realizado un análisis forense detallado del incidente.,end,4
+12,9,Respuesta y Recuperación Bajo,Reforzar las defensas y realizar formación de concienciación,fin,Se reforzaron las defensas y se realizó formación de concienciación.,end,4
+13,9,Respuesta y Recuperación Bajo,Cerrar el incidente,fin,El incidente ha sido cerrado exitosamente.,end,4
