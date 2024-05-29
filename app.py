@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, make_response
 from tree_data_loader import load_tree_data
 
 app = Flask(__name__)
@@ -9,10 +9,35 @@ tree_data = load_tree_data('decision_tree.json')
 
 @app.route('/')
 def index():
-    session.clear()  # Limpiar la sesión antes de empezar
+    return render_template('setup.html')
+
+@app.route('/handle_setup', methods=['POST'])
+def handle_setup():
+    # Guardar los datos de configuración de la empresa en la sesión
+    session['company'] = {
+        'name': request.form['name'],
+        'industry': request.form['industry'],
+        'size': request.form['size'],
+        'security_budget': request.form['security_budget'],
+        'maturity_level': request.form['maturity_level'],
+        'critical_assets': {
+            'data': request.form.getlist('critical_assets_data'),
+            'systems': request.form.getlist('critical_assets_systems'),
+        },
+        'compliance_requirements': request.form.getlist('compliance_requirements'),
+        'technologies_used': request.form.getlist('technologies_used'),
+        'security_policies': request.form.getlist('security_policies')
+    }
+    return redirect(url_for('start_game'))
+
+@app.route('/start_game')
+def start_game():
     session['report'] = []  # Iniciar o reiniciar el reporte
+    session['decisions'] = []  # Guardar las decisiones tomadas
     session['current_node'] = tree_data
-    return render_template('decision.html', node=tree_data)
+    response = make_response(render_template('decision.html', node=tree_data))
+    response.headers['Content-Type'] = 'text/html; charset=utf-8'
+    return response
 
 @app.route('/handle_decision', methods=['POST'])
 def handle_decision():
@@ -22,6 +47,7 @@ def handle_decision():
     next_node = None
     for option in current_node['options']:
         if option['text'] == decision_text:
+            session['decisions'].append(decision_text)
             if 'next' in option:
                 next_node = option['next']
             else:
@@ -32,7 +58,9 @@ def handle_decision():
     if next_node:
         session['current_node'] = next_node
         session.modified = True  # Marcar la sesión como modificada
-        return render_template('decision.html', node=next_node)
+        response = make_response(render_template('decision.html', node=next_node))
+        response.headers['Content-Type'] = 'text/html; charset=utf-8'
+        return response
     else:
         print("No se encontró el siguiente nodo, redirigiendo a conclusión")
         return redirect(url_for('conclusion'))
@@ -41,8 +69,11 @@ def handle_decision():
 def conclusion():
     print("Sesión actual:", dict(session))  # Depuración completa de la sesión
     report = " ".join(session.get('report', []))  # Combinar todas las conclusiones
+    decisions = session.get('decisions', [])
     print("Reporte final:", report)  # Depuración
-    return render_template('conclusion.html', message=report)
+    response = make_response(render_template('conclusion.html', message=report, decisions=decisions))
+    response.headers['Content-Type'] = 'text/html; charset=utf-8'
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)

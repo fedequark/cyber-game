@@ -1,0 +1,15 @@
+{
+  "nombre": "",
+  "industria": ["Tecnología", "Finanzas", "Salud", "Gobierno", "Educación", "Energía", "Manufactura", "Retail", "Transporte", "Telecomunicaciones", "Entretenimiento", "Otra"],
+  "tamaño": ["Microempresa", "Pequeña empresa", "Mediana empresa", "Gran empresa", "Corporación"],
+  "presupuesto_seguridad": ["Muy bajo", "Bajo", "Medio", "Alto", "Muy alto"],
+  "nivel_madurez_ciberseguridad": ["Muy bajo", "Bajo", "Medio", "Alto", "Muy alto"],
+  "activos_criticos": {
+    "datos": ["Personales", "Financieros", "De salud", "Propiedad intelectual", "Secretos comerciales", "Otros"],
+    "sistemas": ["Aplicaciones web", "Bases de datos", "Sistemas de producción", "Infraestructura de red", "Otros"],
+    "reputacion": [true, false]
+  },
+  "normativas_cumplimiento": ["GDPR", "HIPAA", "PCI DSS", "SOX", "GLBA", "ISO 27001", "DORA", "NIS2", "Otra"],
+  "tecnologias_utilizadas": ["Aplicaciones web", "Bases de datos", "Aplicaciones móviles", "Infraestructura en la nube", "Sistemas de correo electrónico", "Sistemas de gestión de relaciones con los clientes (CRM)", "Sistemas de planificación de recursos empresariales (ERP)", "Sistemas de control industrial (ICS/SCADA)", "Otros"],
+  "politicas_seguridad": ["Política de seguridad de la información", "Política de control de acceso", "Política de gestión de activos", "Política de seguridad de recursos humanos", "Política de seguridad física y del entorno", "Política de gestión de las comunicaciones y operaciones", "Política de adquisición, desarrollo y mantenimiento de sistemas de información", "Política de gestión de incidentes de seguridad de la información", "Política de continuidad del negocio", "Política de cumplimiento"]
+}

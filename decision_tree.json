@@ -13,11 +13,35 @@
               "options": [
                 {
                   "text": "Aislar la red afectada",
-                  "conclusion": "La red afectada ha sido aislada para evitar la propagación del ataque."
+                  "next": {
+                    "question": "Aislar la red fue efectivo. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Notificar a la dirección y a las autoridades",
+                        "conclusion": "La dirección y las autoridades han sido notificadas. El incidente está bajo control."
+                      },
+                      {
+                        "text": "Iniciar análisis forense",
+                        "conclusion": "Se ha iniciado un análisis forense para determinar el alcance del ataque."
+                      }
+                    ]
+                  }
                 },
                 {
                   "text": "Preservar evidencia y continuar con operaciones limitadas",
-                  "conclusion": "La evidencia ha sido preservada y las operaciones continúan limitadamente."
+                  "next": {
+                    "question": "Preservar evidencia fue efectivo. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Comenzar la recuperación de datos",
+                        "conclusion": "La recuperación de datos ha comenzado exitosamente y las operaciones se están restaurando."
+                      },
+                      {
+                        "text": "Realizar una evaluación de impacto",
+                        "conclusion": "Una evaluación de impacto se ha completado. Se han identificado las áreas afectadas y las medidas correctivas están en marcha."
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -29,11 +53,35 @@
               "options": [
                 {
                   "text": "Escalar el incidente al equipo de respuesta",
-                  "conclusion": "El incidente ha sido escalado al equipo de respuesta para un manejo adecuado."
+                  "next": {
+                    "question": "El equipo de respuesta está involucrado. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Revisar y actualizar las políticas de seguridad",
+                        "conclusion": "Las políticas de seguridad han sido revisadas y actualizadas para prevenir futuros intentos de phishing."
+                      },
+                      {
+                        "text": "Realizar una formación de concienciación",
+                        "conclusion": "Se ha realizado una formación de concienciación para educar a los empleados sobre los peligros del phishing."
+                      }
+                    ]
+                  }
                 },
                 {
                   "text": "Aplicar correcciones y monitorear",
-                  "conclusion": "Se aplicaron correcciones y se está monitoreando la situación."
+                  "next": {
+                    "question": "Las correcciones se aplicaron. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Implementar medidas adicionales de seguridad",
+                        "conclusion": "Se han implementado medidas adicionales de seguridad y se está monitoreando la situación."
+                      },
+                      {
+                        "text": "Cerrar el incidente y documentar lecciones aprendidas",
+                        "conclusion": "El incidente ha sido cerrado y las lecciones aprendidas han sido documentadas."
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -45,11 +93,35 @@
               "options": [
                 {
                   "text": "Escalar el incidente al equipo de respuesta",
-                  "conclusion": "El incidente ha sido escalado al equipo de respuesta para un manejo adecuado."
+                  "next": {
+                    "question": "El equipo de respuesta está involucrado. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Realizar un análisis completo del malware",
+                        "conclusion": "Se ha realizado un análisis completo del malware y se han implementado las medidas correctivas necesarias."
+                      },
+                      {
+                        "text": "Notificar a los usuarios afectados",
+                        "conclusion": "Los usuarios afectados han sido notificados y se les ha proporcionado asistencia."
+                      }
+                    ]
+                  }
                 },
                 {
                   "text": "Aplicar correcciones y monitorear",
-                  "conclusion": "Se aplicaron correcciones y se está monitoreando la situación."
+                  "next": {
+                    "question": "Las correcciones se aplicaron. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Reforzar las defensas y realizar formación de concienciación",
+                        "conclusion": "Se han reforzado las defensas y se ha realizado una formación de concienciación."
+                      },
+                      {
+                        "text": "Cerrar el incidente y documentar lecciones aprendidas",
+                        "conclusion": "El incidente ha sido cerrado y las lecciones aprendidas han sido documentadas."
+                      }
+                    ]
+                  }
                 }
               ]
             }
