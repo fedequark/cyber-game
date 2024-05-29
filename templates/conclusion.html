@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Reporte de Conclusión</h1>
-    <h2>Decisiones Tomadas:</h2>
-    <ul>
-        {% for decision in decisions %}
-        <li>{{ decision }}</li>
-        {% endfor %}
-    </ul>
-    <h2>Conclusión Final:</h2>
-    <p>{{ message }}</p>
-    <a href="{{ url_for('index') }}">Volver a empezar</a>
+    <div class="content">
+        <h1>Reporte de Conclusión</h1>
+        <h2>Decisiones Tomadas:</h2>
+        <ul>
+            {% for decision in decisions %}
+            <li>{{ decision }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Conclusión Final:</h2>
+        <p>{{ message }}</p>
+        <a href="{{ url_for('index') }}">Volver a empezar</a>
+    </div>
 </body>
 </html>

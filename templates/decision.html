@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>{{ node.question }}</h1>
-    <h2>Empresa: {{ session['company']['name'] }}</h2>
-    <h3>Industria: {{ session['company']['industry'] }}</h3>
-    <h3>Tamaño: {{ session['company']['size'] }}</h3>
-    <h3>Presupuesto de Seguridad: {{ session['company']['security_budget'] }}</h3>
-    <h3>Madurez en Ciberseguridad: {{ session['company']['maturity_level'] }}</h3>
-    <form action="{{ url_for('handle_decision') }}" method="post">
-        {% for option in node.options %}
-        <label>
-            <input type="radio" name="decision_text" value="{{ option.text }}" required>{{ option.text }}
-        </label><br>
-        {% endfor %}
-        <button type="submit">Enviar</button>
-    </form>
+    <div class="content">
+        <h1>{{ node.question }}</h1>
+        <h2>Empresa: {{ session['company']['name'] }}</h2>
+        <h3>Industria: {{ session['company']['industry'] }}</h3>
+        <h3>Tamaño: {{ session['company']['size'] }}</h3>
+        <h3>Presupuesto de Seguridad: {{ session['company']['security_budget'] }}</h3>
+        <h3>Madurez en Ciberseguridad: {{ session['company']['maturity_level'] }}</h3>
+        <form action="{{ url_for('handle_decision') }}" method="post">
+            {% for option in node.options %}
+            <label>
+                <input type="radio" name="decision_text" value="{{ option.text }}" required>{{ option.text }}
+            </label><br>
+            {% endfor %}
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
