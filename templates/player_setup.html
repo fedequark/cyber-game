@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración del Jugador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="content">
+        <h1>Configuración del Jugador</h1>
+        <form action="{{ url_for('handle_player_setup') }}" method="post">
+            <label for="player_name">Nombre:</label><br>
+            <input type="text" id="player_name" name="player_name" required><br>
+
+            <label for="player_role">Rol:</label><br>
+            <select id="player_role" name="player_role" required>
+                <option value="Analista de seguridad">Analista de seguridad</option>
+                <option value="Ingeniero de ciberseguridad">Ingeniero de ciberseguridad</option>
+                <option value="Consultor de seguridad">Consultor de seguridad</option>
+                <option value="Gerente de TI">Gerente de TI</option>
+                <option value="CISO">CISO</option>
+                <option value="Otro">Otro</option>
+            </select><br>
+
+            <label for="experience_level">Nivel de experiencia:</label><br>
+            <select id="experience_level" name="experience_level" required>
+                <option value="Principiante">Principiante</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>
+                <option value="Experto">Experto</option>
+            </select><br>
+
+            <label for="technical_skills">Habilidades técnicas:</label><br>
+            <select id="technical_skills" name="technical_skills" required>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select><br>
+
+            <label for="non_technical_skills">Habilidades no técnicas:</label><br>
+            <select id="non_technical_skills" name="non_technical_skills" required>
+                <option value="Gestión de proyectos">Gestión de proyectos</option>
+                <option value="Comunicación">Comunicación</option>
+                <option value="Formación y desarrollo">Formación y desarrollo</option>
+                <option value="Evaluación de riesgos">Evaluación de riesgos</option>
+                <option value="Otra">Otra</option>
+            </select><br>
+
+            <label for="specializations">Especializaciones:</label><br>
+            <textarea id="specializations" name="specializations"></textarea><br>
+
+            <button type="submit">Guardar configuración</button>
+        </form>
+    </div>
+</body>
+</html>

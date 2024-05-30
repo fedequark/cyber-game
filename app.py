@@ -22,11 +22,28 @@ def handle_setup():
         'maturity_level': request.form['maturity_level'],
         'critical_assets': {
             'data': request.form.getlist('critical_assets_data'),
-            'systems': request.form.getlist('critical_assets_systems'),
+            'systems': request.form.getlist('critical_assets_systems')
         },
         'compliance_requirements': request.form.getlist('compliance_requirements'),
         'technologies_used': request.form.getlist('technologies_used'),
         'security_policies': request.form.getlist('security_policies')
+    }
+    return redirect(url_for('player_setup'))
+
+@app.route('/player_setup')
+def player_setup():
+    return render_template('player_setup.html')
+
+@app.route('/handle_player_setup', methods=['POST'])
+def handle_player_setup():
+    # Guardar los datos de configuración del jugador en la sesión
+    session['player'] = {
+        'name': request.form['player_name'],
+        'role': request.form['player_role'],
+        'experience_level': request.form['experience_level'],
+        'technical_skills': request.form['technical_skills'],
+        'non_technical_skills': request.form['non_technical_skills'],
+        'specializations': request.form['specializations']
     }
     return redirect(url_for('start_game'))
 

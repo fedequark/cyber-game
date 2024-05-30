@@ -14,6 +14,11 @@
         <h3>Tamaño: {{ session['company']['size'] }}</h3>
         <h3>Presupuesto de Seguridad: {{ session['company']['security_budget'] }}</h3>
         <h3>Madurez en Ciberseguridad: {{ session['company']['maturity_level'] }}</h3>
+        <h2>Jugador: {{ session['player']['name'] }}</h2>
+        <h3>Rol: {{ session['player']['role'] }}</h3>
+        <h3>Nivel de Experiencia: {{ session['player']['experience_level'] }}</h3>
+        <h3>Habilidades Técnicas: {{ session['player']['technical_skills'] }}</h3>
+        <h3>Habilidades No Técnicas: {{ session['player']['non_technical_skills'] }}</h3>
         <form action="{{ url_for('handle_decision') }}" method="post">
             {% for option in node.options %}
             <label>
