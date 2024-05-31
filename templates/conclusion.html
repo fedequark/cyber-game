@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Conclusión del Juego</h1>
+        <h1 class="text-center">Conclusión del Juego</h1>
         <p>{{ message }}</p>
         <h2>Decisiones Tomadas</h2>
         <ul>
@@ -24,7 +24,7 @@
                 <li>{{ decision }}</li>
             {% endfor %}
         </ul>
-        <a class="btn btn-primary" href="{{ url_for('home') }}">Volver al Inicio</a>
+        <a class="btn btn-primary btn-block" href="{{ url_for('home') }}">Volver al Inicio</a>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
