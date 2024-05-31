@@ -12,7 +12,7 @@
               "question": "Elige una acción inicial adecuada",
               "options": [
                 {
-                  "text": "Aislar la red afectada",
+                  "text": "Aislar la red afectada (Perfil Técnico)",
                   "next": {
                     "question": "Aislar la red fue efectivo. ¿Qué haces a continuación?",
                     "options": [
@@ -28,17 +28,17 @@
                   }
                 },
                 {
-                  "text": "Preservar evidencia y continuar con operaciones limitadas",
+                  "text": "Notificar al equipo de TI (Perfil No Técnico)",
                   "next": {
-                    "question": "Preservar evidencia fue efectivo. ¿Qué haces a continuación?",
+                    "question": "El equipo de TI ha sido notificado. ¿Qué haces a continuación?",
                     "options": [
                       {
-                        "text": "Comenzar la recuperación de datos",
-                        "conclusion": "La recuperación de datos ha comenzado exitosamente y las operaciones se están restaurando."
+                        "text": "Informar a los usuarios afectados",
+                        "conclusion": "Los usuarios afectados han sido informados y se están tomando medidas para mitigar el impacto."
                       },
                       {
-                        "text": "Realizar una evaluación de impacto",
-                        "conclusion": "Una evaluación de impacto se ha completado. Se han identificado las áreas afectadas y las medidas correctivas están en marcha."
+                        "text": "Coordinar con el equipo de comunicaciones",
+                        "conclusion": "El equipo de comunicaciones está gestionando la situación con los stakeholders y los medios."
                       }
                     ]
                   }
@@ -52,7 +52,7 @@
               "question": "Selecciona los pasos a seguir",
               "options": [
                 {
-                  "text": "Escalar el incidente al equipo de respuesta",
+                  "text": "Escalar el incidente al equipo de respuesta (Perfil Técnico)",
                   "next": {
                     "question": "El equipo de respuesta está involucrado. ¿Qué haces a continuación?",
                     "options": [
@@ -68,7 +68,7 @@
                   }
                 },
                 {
-                  "text": "Aplicar correcciones y monitorear",
+                  "text": "Aplicar correcciones y monitorear (Perfil No Técnico)",
                   "next": {
                     "question": "Las correcciones se aplicaron. ¿Qué haces a continuación?",
                     "options": [
@@ -92,7 +92,7 @@
               "question": "Selecciona los pasos a seguir",
               "options": [
                 {
-                  "text": "Escalar el incidente al equipo de respuesta",
+                  "text": "Escalar el incidente al equipo de respuesta (Perfil Técnico)",
                   "next": {
                     "question": "El equipo de respuesta está involucrado. ¿Qué haces a continuación?",
                     "options": [
@@ -108,7 +108,7 @@
                   }
                 },
                 {
-                  "text": "Aplicar correcciones y monitorear",
+                  "text": "Aplicar correcciones y monitorear (Perfil No Técnico)",
                   "next": {
                     "question": "Las correcciones se aplicaron. ¿Qué haces a continuación?",
                     "options": [

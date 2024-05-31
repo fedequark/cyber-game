@@ -68,7 +68,11 @@ def handle_decision():
             if 'next' in option:
                 next_node = option['next']
             else:
-                session['report'].append(option['conclusion'])
+                conclusion = option['conclusion']
+                session['report'].append(conclusion)
+                print(f"Conclusión agregada: {conclusion}")  # Depuración
+                print(f"Estado actual del reporte: {session['report']}")  # Depuración
+                session.modified = True  # Marcar la sesión como modificada
                 return redirect(url_for('conclusion'))
             break
     
@@ -86,8 +90,9 @@ def handle_decision():
 def conclusion():
     print("Sesión actual:", dict(session))  # Depuración completa de la sesión
     report = " ".join(session.get('report', []))  # Combinar todas las conclusiones
+    print(f"Reporte final: {report}")  # Depuración
     decisions = session.get('decisions', [])
-    print("Reporte final:", report)  # Depuración
+    print(f"Decisiones tomadas: {decisions}")  # Depuración
     response = make_response(render_template('conclusion.html', message=report, decisions=decisions))
     response.headers['Content-Type'] = 'text/html; charset=utf-8'
     return response
