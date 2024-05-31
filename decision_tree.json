@@ -22,7 +22,19 @@
                       },
                       {
                         "text": "Iniciar análisis forense",
-                        "conclusion": "Se ha iniciado un análisis forense para determinar el alcance del ataque."
+                        "next": {
+                          "question": "Elige el tipo de análisis forense",
+                          "options": [
+                            {
+                              "text": "Análisis de disco",
+                              "conclusion": "Se ha iniciado un análisis forense de disco para determinar el alcance del ataque."
+                            },
+                            {
+                              "text": "Análisis de memoria",
+                              "conclusion": "Se ha iniciado un análisis forense de memoria para identificar rastros del ransomware."
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
@@ -63,6 +75,10 @@
                       {
                         "text": "Realizar una formación de concienciación",
                         "conclusion": "Se ha realizado una formación de concienciación para educar a los empleados sobre los peligros del phishing."
+                      },
+                      {
+                        "text": "Implementar herramientas anti-phishing",
+                        "conclusion": "Se han implementado herramientas anti-phishing para fortalecer la defensa contra estos ataques."
                       }
                     ]
                   }
@@ -98,7 +114,19 @@
                     "options": [
                       {
                         "text": "Realizar un análisis completo del malware",
-                        "conclusion": "Se ha realizado un análisis completo del malware y se han implementado las medidas correctivas necesarias."
+                        "next": {
+                          "question": "Elige el enfoque del análisis",
+                          "options": [
+                            {
+                              "text": "Análisis estático",
+                              "conclusion": "Se ha realizado un análisis estático del malware y se han implementado las medidas correctivas necesarias."
+                            },
+                            {
+                              "text": "Análisis dinámico",
+                              "conclusion": "Se ha realizado un análisis dinámico del malware para comprender su comportamiento."
+                            }
+                          ]
+                        }
                       },
                       {
                         "text": "Notificar a los usuarios afectados",

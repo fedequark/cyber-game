@@ -1,3 +1,4 @@
+import random
 from flask import Flask, render_template, request, session, redirect, url_for, make_response
 from tree_data_loader import load_tree_data
 
@@ -14,6 +15,50 @@ def home():
 @app.route('/setup')
 def setup():
     return render_template('setup.html')
+
+@app.route('/generate_random')
+def generate_random():
+    # Generar datos aleatorios para la empresa
+    industries = ["Tecnología", "Finanzas", "Salud", "Gobierno", "Educación", "Energía", "Manufactura", "Retail", "Transporte", "Telecomunicaciones", "Entretenimiento", "Otra"]
+    sizes = ["Microempresa", "Pequeña empresa", "Mediana empresa", "Gran empresa", "Corporación"]
+    budgets = ["Muy bajo", "Bajo", "Medio", "Alto", "Muy alto"]
+    maturities = ["Muy bajo", "Bajo", "Medio", "Alto", "Muy alto"]
+    assets_data = ["Personales", "Financieros", "De salud", "Propiedad intelectual", "Secretos comerciales", "Otros"]
+    assets_systems = ["Aplicaciones web", "Bases de datos", "Sistemas de producción", "Infraestructura de red", "Otros"]
+    compliance = ["GDPR", "HIPAA", "PCI DSS", "SOX", "GLBA", "ISO 27001", "DORA", "NIS2", "Otra"]
+    technologies = ["Aplicaciones web", "Bases de datos", "Aplicaciones móviles", "Infraestructura en la nube", "Sistemas de correo electrónico", "Sistemas de gestión de relaciones con los clientes (CRM)", "Sistemas de planificación de recursos empresariales (ERP)", "Sistemas de control industrial (ICS/SCADA)", "Otros"]
+    policies = ["Política de seguridad de la información", "Política de control de acceso", "Política de gestión de activos", "Política de seguridad de recursos humanos", "Política de seguridad física y del entorno", "Política de gestión de las comunicaciones y operaciones", "Política de adquisición, desarrollo y mantenimiento de sistemas de información", "Política de gestión de incidentes de seguridad de la información", "Política de continuidad del negocio", "Política de cumplimiento"]
+
+    session['company'] = {
+        'name': "Empresa Random",
+        'industry': random.choice(industries),
+        'size': random.choice(sizes),
+        'security_budget': random.choice(budgets),
+        'maturity_level': random.choice(maturities),
+        'critical_assets': {
+            'data': random.sample(assets_data, k=2),
+            'systems': random.sample(assets_systems, k=2)
+        },
+        'compliance_requirements': random.sample(compliance, k=2),
+        'technologies_used': random.sample(technologies, k=2),
+        'security_policies': random.sample(policies, k=2)
+    }
+
+    # Generar datos aleatorios para el jugador
+    roles = ["Administrador de sistemas", "Especialista en seguridad", "Gerente de TI", "Consultor de seguridad", "Ingeniero de red", "Desarrollador de software", "Arquitecto de seguridad", "Auditor de seguridad", "Analista de seguridad", "Especialista en cumplimiento", "Otros"]
+    experience_levels = ["Principiante", "Intermedio", "Avanzado", "Experto"]
+    technical_skills = ["Redes", "Seguridad de aplicaciones", "Criptografía", "Análisis forense", "Respuesta a incidentes", "Gestión de identidades y accesos", "Monitoreo y análisis de seguridad", "Desarrollo seguro", "Penetration testing"]
+    non_technical_skills = ["Comunicación", "Liderazgo", "Gestión de proyectos", "Pensamiento crítico", "Resolución de problemas", "Trabajo en equipo"]
+
+    session['player'] = {
+        'name': "Jugador Random",
+        'role': random.choice(roles),
+        'experience_level': random.choice(experience_levels),
+        'technical_skills': random.sample(technical_skills, k=3),
+        'non_technical_skills': random.sample(non_technical_skills, k=2)
+    }
+
+    return redirect(url_for('summary'))
 
 @app.route('/handle_setup', methods=['POST'])
 def handle_setup():
