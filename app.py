@@ -47,9 +47,8 @@ def handle_player_setup():
         'name': request.form['player_name'],
         'role': request.form['player_role'],
         'experience_level': request.form['experience_level'],
-        'technical_skills': request.form['technical_skills'],
-        'non_technical_skills': request.form['non_technical_skills'],
-        'specializations': request.form['specializations']
+        'technical_skills': request.form.getlist('technical_skills'),
+        'non_technical_skills': request.form.getlist('non_technical_skills')
     }
     return redirect(url_for('start_game'))
 
