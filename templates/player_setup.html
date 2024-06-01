@@ -12,18 +12,31 @@
         </div>
         <div class="form-group">
             <label for="player_role">Rol:</label>
-            <input type="text" class="form-control" id="player_role" name="player_role" required>
+            <select class="form-control" id="player_role" name="player_role" required>
+                <option value="Analista de Seguridad">Analista de Seguridad</option>
+                <option value="Ingeniero de Seguridad">Ingeniero de Seguridad</option>
+                <option value="Gerente de Seguridad">Gerente de Seguridad</option>
+                <option value="Arquitecto de Seguridad">Arquitecto de Seguridad</option>
+                <option value="Consultor de Seguridad">Consultor de Seguridad</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="experience_level">Nivel de Experiencia:</label>
-            <input type="text" class="form-control" id="experience_level" name="experience_level" required>
+            <select class="form-control" id="experience_level" name="experience_level" required>
+                <option value="Junior">Junior</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Senior">Senior</option>
+                <option value="Experto">Experto</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="technical_skills">Habilidades Técnicas:</label>
             <select class="form-control" id="technical_skills" name="technical_skills" multiple>
                 <option value="Redes">Redes</option>
                 <option value="Seguridad de aplicaciones">Seguridad de aplicaciones</option>
-                <!-- Agrega otras opciones aquí -->
+                <option value="Administración de sistemas">Administración de sistemas</option>
+                <option value="Criptografía">Criptografía</option>
+                <option value="Análisis forense">Análisis forense</option>
             </select>
         </div>
         <div class="form-group">
@@ -31,7 +44,9 @@
             <select class="form-control" id="non_technical_skills" name="non_technical_skills" multiple>
                 <option value="Comunicación">Comunicación</option>
                 <option value="Trabajo en equipo">Trabajo en equipo</option>
-                <!-- Agrega otras opciones aquí -->
+                <option value="Liderazgo">Liderazgo</option>
+                <option value="Gestión de proyectos">Gestión de proyectos</option>
+                <option value="Pensamiento crítico">Pensamiento crítico</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -19,9 +19,9 @@
             <a href="{{ url_for('company_setup_options.company_setup_options') }}" class="btn btn-primary">Configurar Empresa</a>
         {% endif %}
         {% if company_configured %}
-            <a href="{{ url_for('confirmation.confirmation') }}" class="btn btn-success">Iniciar las Decisiones</a>
+            <a href="{{ url_for('confirmation.confirmation') }}" class="btn btn-success">Continuar</a>
         {% else %}
-            <button class="btn btn-success" disabled>Iniciar las Decisiones</button>
+            <button class="btn btn-success" disabled>Continuar</button>
             <p class="text-danger mt-2">Debes configurar la empresa para poder iniciar las decisiones.</p>
         {% endif %}
         <div class="mt-3">

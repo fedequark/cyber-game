@@ -1,31 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conclusión</title>
+    <title>Pregunta</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Conclusión</h1>
-        <div class="mt-4">
-            <h3>Decisiones tomadas:</h3>
-            <ul class="list-group">
-                {% for decision in decisions %}
-                    <li class="list-group-item">{{ decision }}</li>
+        <h1 class="text-center">{{ question }}</h1>
+        <form method="POST" action="{{ url_for('decision.make_decision') }}">
+            <div class="list-group mt-4">
+                {% for option in options %}
+                    <button type="submit" name="choice" value="{{ loop.index0 }}" class="list-group-item list-group-item-action">{{ option.text }}</button>
                 {% endfor %}
-            </ul>
-        </div>
-        <div class="mt-4">
-            <h3>Conclusión:</h3>
-            <p>{{ conclusion }}</p>
-        </div>
-        <div class="text-center mt-4">
-            <a href="{{ url_for('home.home') }}" class="btn btn-primary">Volver al Inicio</a>
-        </div>
+            </div>
+        </form>
     </div>
 
     <!-- Bootstrap JS and dependencies -->

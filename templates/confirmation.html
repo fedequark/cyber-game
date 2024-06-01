@@ -1,46 +1,58 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Configuraciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Confirmación de Configuraciones</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Perfil del Jugador</h5>
+                <p class="card-text"><strong>Nombre del Jugador:</strong> {{ player_name }}</p>
+                <p class="card-text"><strong>Rol:</strong> {{ player_role }}</p>
+                <p class="card-text"><strong>Nivel de Experiencia:</strong> {{ experience_level }}</p>
+                <p class="card-text"><strong>Habilidades Técnicas:</strong> {{ technical_skills | join(', ') }}</p>
+                <p class="card-text"><strong>Habilidades No Técnicas:</strong> {{ non_technical_skills | join(', ') }}</p>
+            </div>
+        </div>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Perfil de la Empresa</h5>
+                <p class="card-text"><strong>Industria:</strong> {{ industry }}</p>
+                <p class="card-text"><strong>Tamaño:</strong> {{ size }}</p>
+                <p class="card-text"><strong>Presupuesto de seguridad:</strong> {{ security_budget }}</p>
+                <p class="card-text"><strong>Nivel de madurez en ciberseguridad:</strong> {{ maturity_level }}</p>
+                <p class="card-text"><strong>Activos Críticos (Datos):</strong> {{ critical_assets_data | join(', ') }}</p>
+                <p class="card-text"><strong>Activos Críticos (Sistemas):</strong> {{ critical_assets_systems | join(', ') }}</p>
+                <p class="card-text"><strong>Normativas de cumplimiento:</strong> {{ compliance_requirements | join(', ') }}</p>
+                <p class="card-text"><strong>Tecnologías utilizadas:</strong> {{ technologies_used | join(', ') }}</p>
+                <p class="card-text"><strong>Políticas de seguridad:</strong> {{ security_policies | join(', ') }}</p>
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-primary">Modificar Jugador</a>
+            <a href="{{ url_for('company_setup_options.company_setup_options') }}" class="btn btn-primary">Modificar Empresa</a>
+            {% if player_configured and company_configured %}
+                <a href="{{ url_for('decision.start_decision') }}" class="btn btn-success">Iniciar el Juego</a>
+            {% else %}
+                <button class="btn btn-success" disabled>Iniciar el Juego</button>
+                <p class="text-danger mt-2">Debes configurar tanto el jugador como la empresa para poder iniciar el juego.</p>
+            {% endif %}
+            <div class="mt-3">
+                <a href="{{ url_for('home.home') }}" class="btn btn-warning">Volver al Inicio</a>
+            </div>
+        </div>
+    </div>
 
-{% block title %}Confirmación de Configuraciones{% endblock %}
-
-{% block content %}
-<div class="container mt-5">
-    <h1 class="text-center">Confirmación de Configuraciones</h1>
-    <div class="card mt-4">
-        <div class="card-body">
-            <h5 class="card-title">Perfil del Jugador</h5>
-            <p class="card-text"><strong>Nombre del Jugador:</strong> {{ player_name }}</p>
-            <p class="card-text"><strong>Rol:</strong> {{ player_role }}</p>
-            <p class="card-text"><strong>Nivel de Experiencia:</strong> {{ experience_level }}</p>
-            <p class="card-text"><strong>Habilidades Técnicas:</strong> {{ technical_skills | join(', ') }}</p>
-            <p class="card-text"><strong>Habilidades No Técnicas:</strong> {{ non_technical_skills | join(', ') }}</p>
-        </div>
-    </div>
-    <div class="card mt-4">
-        <div class="card-body">
-            <h5 class="card-title">Perfil de la Empresa</h5>
-            <p class="card-text"><strong>Industria:</strong> {{ industry }}</p>
-            <p class="card-text"><strong>Tamaño:</strong> {{ size }}</p>
-            <p class="card-text"><strong>Presupuesto de seguridad:</strong> {{ security_budget }}</p>
-            <p class="card-text"><strong>Nivel de madurez en ciberseguridad:</strong> {{ maturity_level }}</p>
-            <p class="card-text"><strong>Activos Críticos (Datos):</strong> {{ critical_assets_data | join(', ') }}</p>
-            <p class="card-text"><strong>Activos Críticos (Sistemas):</strong> {{ critical_assets_systems | join(', ') }}</p>
-            <p class="card-text"><strong>Normativas de cumplimiento:</strong> {{ compliance_requirements | join(', ') }}</p>
-            <p class="card-text"><strong>Tecnologías utilizadas:</strong> {{ technologies_used | join(', ') }}</p>
-            <p class="card-text"><strong>Políticas de seguridad:</strong> {{ security_policies | join(', ') }}</p>
-        </div>
-    </div>
-    <div class="mt-4 text-center">
-        <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-primary">Modificar Jugador</a>
-        <a href="{{ url_for('company_setup_options.company_setup_options') }}" class="btn btn-primary">Modificar Empresa</a>
-        {% if player_configured and company_configured %}
-            <a href="{{ url_for('handle_decision.handle_decision') }}" class="btn btn-success">Iniciar el Juego</a>
-        {% else %}
-            <button class="btn btn-success" disabled>Iniciar el Juego</button>
-            <p class="text-danger mt-2">Debes configurar tanto el jugador como la empresa para poder iniciar el juego.</p>
-        {% endif %}
-        <div class="mt-3">
-            <a href="{{ url_for('home.home') }}" class="btn btn-warning">Volver al Inicio</a>
-        </div>
-    </div>
-</div>
-{% endblock %}
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
