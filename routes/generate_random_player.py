@@ -1,16 +1,33 @@
 from flask import Blueprint, session, redirect, url_for, render_template
+import random
 
 generate_random_player_bp = Blueprint('generate_random_player', __name__)
 
 @generate_random_player_bp.route('/generate_random_player')
 def generate_random_player():
-    # Generar datos aleatorios del jugador
-    session['player_name'] = 'Jugador Aleatorio'
-    session['player_role'] = 'Especialista en seguridad'
-    session['experience_level'] = 'Intermedio'
-    session['technical_skills'] = ['Redes', 'Seguridad de aplicaciones']
-    session['non_technical_skills'] = ['Comunicación', 'Trabajo en equipo']
-    return redirect(url_for('generate_random_player.player_profile'))
+    # Opciones para los atributos del jugador
+    player_names = ['Juan', 'María', 'Carlos', 'Laura', 'Pedro']
+    player_roles = ['Analista de Seguridad', 'Ingeniero de Seguridad', 'Gerente de Seguridad', 'Arquitecto de Seguridad', 'Consultor de Seguridad']
+    experience_levels = ['Junior', 'Intermedio', 'Senior', 'Experto']
+    technical_skills_list = [['Redes', 'Seguridad de aplicaciones', 'Criptografía'], 
+                             ['Administración de sistemas', 'Análisis forense'], 
+                             ['Redes', 'Administración de sistemas'],
+                             ['Seguridad de aplicaciones', 'Análisis forense'],
+                             ['Criptografía', 'Análisis forense']]
+    non_technical_skills_list = [['Comunicación', 'Trabajo en equipo'], 
+                                 ['Liderazgo', 'Gestión de proyectos'], 
+                                 ['Pensamiento crítico', 'Comunicación'],
+                                 ['Trabajo en equipo', 'Gestión de proyectos'],
+                                 ['Pensamiento crítico', 'Liderazgo']]
+
+    # Seleccionar aleatoriamente los atributos del jugador
+    session['player_name'] = random.choice(player_names)
+    session['player_role'] = random.choice(player_roles)
+    session['experience_level'] = random.choice(experience_levels)
+    session['technical_skills'] = random.choice(technical_skills_list)
+    session['non_technical_skills'] = random.choice(non_technical_skills_list)
+
+    return redirect(url_for('player_setup.player_profile'))
 
 @generate_random_player_bp.route('/player_profile')
 def player_profile():

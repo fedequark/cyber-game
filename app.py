@@ -1,7 +1,5 @@
 from flask import Flask, session, redirect, url_for, render_template
 import json
-import os
-import random
 from routes.home import home_bp
 from routes.company_setup import company_setup_bp
 from routes.generate_random_company import generate_random_company_bp
@@ -20,23 +18,15 @@ from routes.decision import decision_bp
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-# Cargar el archivo de escenarios
-try:
-    with open('scenarios.json', encoding='utf-8') as f:
-        scenarios = json.load(f)
-        # print("Escenarios cargados correctamente:", scenarios)
-except json.JSONDecodeError as e:
-    print(f"Error al cargar scenarios.json: {e}")
-    scenarios = {}
+# Cargar el archivo JSON
+with open('decision_tree.json', encoding='utf-8') as f:
+    decision_tree = json.load(f)
 
+# Almacenar el árbol de decisiones en la sesión al inicio de la aplicación
 @app.before_first_request
-def initialize_scenarios():
-    print("Ejecutando initialize_scenarios")
-    if scenarios:
-        session['scenarios'] = scenarios
-        print("Escenarios guardados en la sesión:", session['scenarios'])
-    else:
-        print("No se pudieron cargar los escenarios.")
+def initialize_decision_tree():
+    session['decision_tree'] = decision_tree
+    session['current_node'] = decision_tree
 
 # Registrar los Blueprints
 app.register_blueprint(home_bp)

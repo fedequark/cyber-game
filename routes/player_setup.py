@@ -29,14 +29,3 @@ def player_profile():
                            technical_skills=session.get('technical_skills'),
                            non_technical_skills=session.get('non_technical_skills'),
                            company_configured=company_configured)
-
-@player_setup_bp.route('/submit', methods=['POST'])
-def submit():
-    player_profile = {
-        'role': request.form.get('role'),
-        'experience_level': request.form.get('experience_level').lower(),  # Asegúrate de que se almacena en minúsculas
-        # Otros campos relevantes
-    }
-    session['player_profile'] = player_profile
-    return redirect(url_for('confirmation.confirmation'))
-
