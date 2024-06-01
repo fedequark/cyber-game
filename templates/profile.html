@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Perfil de la Empresa{% endblock %}
+
+{% block content %}
+<h1>Perfil de la Empresa Generada</h1>
+<p><strong>Industria:</strong> {{ industry }}</p>
+<p><strong>Tamaño:</strong> {{ size }}</p>
+<p><strong>Presupuesto de seguridad:</strong> {{ security_budget }}</p>
+<p><strong>Madurez en ciberseguridad:</strong> {{ maturity_level }}</p>
+<p><strong>Activos Críticos (Datos):</strong> {{ critical_assets_data | join(', ') }}</p>
+<p><strong>Activos Críticos (Sistemas):</strong> {{ critical_assets_systems | join(', ') }}</p>
+<p><strong>Normativas de cumplimiento:</strong> {{ compliance_requirements | join(', ') }}</p>
+<p><strong>Tecnologías utilizadas:</strong> {{ technologies_used | join(', ') }}</p>
+<p><strong>Políticas de seguridad:</strong> {{ security_policies | join(', ') }}</p>
+
+<a href="{{ url_for('home.home') }}" class="btn btn-primary">Volver a la Página Principal</a>
+<a href="{{ url_for('restart.restart') }}" class="btn btn-success">Proceder</a>
+{% endblock %}

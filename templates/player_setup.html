@@ -1,81 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración del Jugador</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="text-center">Configuración del Jugador</h1>
-        <form action="{{ url_for('handle_player_setup') }}" method="post">
-            <div class="form-group">
-                <label for="player_name">Nombre del Jugador:</label>
-                <input type="text" class="form-control" id="player_name" name="player_name" required>
-            </div>
-            <div class="form-group">
-                <label for="player_role">Rol:</label>
-                <select class="form-control" id="player_role" name="player_role" required>
-                    <option value="Administrador de sistemas">Administrador de sistemas</option>
-                    <option value="Especialista en seguridad">Especialista en seguridad</option>
-                    <option value="Gerente de TI">Gerente de TI</option>
-                    <option value="Consultor de seguridad">Consultor de seguridad</option>
-                    <option value="Ingeniero de red">Ingeniero de red</option>
-                    <option value="Desarrollador de software">Desarrollador de software</option>
-                    <option value="Arquitecto de seguridad">Arquitecto de seguridad</option>
-                    <option value="Auditor de seguridad">Auditor de seguridad</option>
-                    <option value="Analista de seguridad">Analista de seguridad</option>
-                    <option value="Especialista en cumplimiento">Especialista en cumplimiento</option>
-                    <option value="Otros">Otros</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="experience_level">Nivel de experiencia:</label>
-                <select class="form-control" id="experience_level" name="experience_level" required>
-                    <option value="Principiante">Principiante</option>
-                    <option value="Intermedio">Intermedio</option>
-                    <option value="Avanzado">Avanzado</option>
-                    <option value="Experto">Experto</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="technical_skills">Habilidades técnicas:</label>
-                <select class="form-control" id="technical_skills" name="technical_skills[]" multiple required>
-                    <option value="Redes">Redes</option>
-                    <option value="Seguridad de aplicaciones">Seguridad de aplicaciones</option>
-                    <option value="Criptografía">Criptografía</option>
-                    <option value="Análisis forense">Análisis forense</option>
-                    <option value="Respuesta a incidentes">Respuesta a incidentes</option>
-                    <option value="Gestión de identidades y accesos">Gestión de identidades y accesos</option>
-                    <option value="Monitoreo y análisis de seguridad">Monitoreo y análisis de seguridad</option>
-                    <option value="Desarrollo seguro">Desarrollo seguro</option>
-                    <option value="Penetration testing">Penetration testing</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="non_technical_skills">Habilidades no técnicas:</label>
-                <select class="form-control" id="non_technical_skills" name="non_technical_skills[]" multiple required>
-                    <option value="Comunicación">Comunicación</option>
-                    <option value="Liderazgo">Liderazgo</option>
-                    <option value="Gestión de proyectos">Gestión de proyectos</option>
-                    <option value="Pensamiento crítico">Pensamiento crítico</option>
-                    <option value="Resolución de problemas">Resolución de problemas</option>
-                    <option value="Trabajo en equipo">Trabajo en equipo</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Guardar configuración</button>
-        </form>
+{% extends "base.html" %}
+
+{% block title %}Configuración del Jugador{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Configuración del Jugador</h1>
+    <form action="{{ url_for('player_setup.handle_player_setup') }}" method="post">
+        <div class="form-group">
+            <label for="player_name">Nombre del Jugador:</label>
+            <input type="text" class="form-control" id="player_name" name="player_name" required>
+        </div>
+        <div class="form-group">
+            <label for="player_role">Rol:</label>
+            <select class="form-control" id="player_role" name="player_role" required>
+                <option value="Administrador de sistemas">Administrador de sistemas</option>
+                <option value="Especialista en seguridad">Especialista en seguridad</option>
+                <option value="Gerente de TI">Gerente de TI</option>
+                <option value="Consultor de seguridad">Consultor de seguridad</option>
+                <option value="Ingeniero de red">Ingeniero de red</option>
+                <option value="Desarrollador de software">Desarrollador de software</option>
+                <option value="Arquitecto de seguridad">Arquitecto de seguridad</option>
+                <option value="Auditor de seguridad">Auditor de seguridad</option>
+                <option value="Analista de seguridad">Analista de seguridad</option>
+                <option value="Especialista en cumplimiento">Especialista en cumplimiento</option>
+                <option value="Otros">Otros</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="experience_level">Nivel de experiencia:</label>
+            <select class="form-control" id="experience_level" name="experience_level" required>
+                <option value="Principiante">Principiante</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>
+                <option value="Experto">Experto</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="technical_skills">Habilidades técnicas:</label>
+            <select class="form-control" id="technical_skills" name="technical_skills[]" multiple required>
+                <option value="Redes">Redes</option>
+                <option value="Seguridad de aplicaciones">Seguridad de aplicaciones</option>
+                <option value="Criptografía">Criptografía</option>
+                <option value="Análisis forense">Análisis forense</option>
+                <option value="Respuesta a incidentes">Respuesta a incidentes</option>
+                <option value="Gestión de identidades y accesos">Gestión de identidades y accesos</option>
+                <option value="Monitoreo y análisis de seguridad">Monitoreo y análisis de seguridad</option>
+                <option value="Desarrollo seguro">Desarrollo seguro</option>
+                <option value="Penetration testing">Penetration testing</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="non_technical_skills">Habilidades no técnicas:</label>
+            <select class="form-control" id="non_technical_skills" name="non_technical_skills[]" multiple required>
+                <option value="Comunicación">Comunicación</option>
+                <option value="Liderazgo">Liderazgo</option>
+                <option value="Gestión de proyectos">Gestión de proyectos</option>
+                <option value="Pensamiento crítico">Pensamiento crítico</option>
+                <option value="Resolución de problemas">Resolución de problemas</option>
+                <option value="Trabajo en equipo">Trabajo en equipo</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Guardar configuración</button>
+    </form>
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-warning">Volver</a>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Configurar Empresa{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>Configurar Empresa</h1>
+    <div class="mt-4">
+        <a href="{{ url_for('company_setup.setup') }}" class="btn btn-primary btn-lg mx-2">Configuración Manual</a>
+        <a href="{{ url_for('generate_random_company.generate_random_company') }}" class="btn btn-secondary btn-lg mx-2">Configuración Aleatoria</a>
+    </div>
+    <div class="mt-4">
+        <a href="{{ url_for('setup_options.setup_options') }}" class="btn btn-warning btn-lg mx-2">Volver</a>
+    </div>
+</div>
+{% endblock %}

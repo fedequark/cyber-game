@@ -1,43 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decisión del Juego</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="text-center">Toma una Decisión</h1>
-        <div class="card mt-4">
-            <div class="card-body">
-                <h5 class="card-title">{{ node.title }}</h5>
-                <p class="card-text">{{ node.description }}</p>
-                <form action="{{ url_for('handle_decision') }}" method="post">
-                    <div class="form-group">
-                        {% for option in node.options %}
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="decision_text" id="option{{ loop.index }}" value="{{ option.text }}" required>
-                            <label class="form-check-label" for="option{{ loop.index }}">
-                                {{ option.text }}
-                            </label>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar Decisión</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Decisión{% endblock %}
+
+{% block content %}
+<h1>Tomar una Decisión</h1>
+<form action="{{ url_for('handle_decision.handle_decision') }}" method="POST">
+    {% for option in node.options %}
+        <button type="submit" name="decision_text" value="{{ option.text }}">{{ option.text }}</button>
+    {% endfor %}
+</form>
+<a href="{{ url_for('home.home') }}">Volver a la Página Principal</a>
+{% endblock %}

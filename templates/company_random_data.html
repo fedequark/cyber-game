@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Datos Aleatorios{% endblock %}
+
+{% block content %}
+<h1>Datos Aleatorios Generados</h1>
+<p>Industria: {{ data.industry }}</p>
+<p>Tamaño: {{ data.size }}</p>
+<p>Presupuesto: {{ data.budget }}</p>
+<p>Madurez: {{ data.maturity }}</p>
+<p>Datos de Activos: {{ data.assets_data }}</p>
+<p>Sistemas de Activos: {{ data.assets_systems }}</p>
+<p>Compliance: {{ data.compliance }}</p>
+<p>Tecnologías: {{ data.technologies }}</p>
+<p>Políticas: {{ data.policies }}</p>
+
+<a href="{{ url_for('home.home') }}" class="btn btn-primary">Volver a la Página Principal</a>
+<a href="{{ url_for('restart.restart') }}" class="btn btn-success">Iniciar Juego de Decisiones</a>
+{% endblock %}

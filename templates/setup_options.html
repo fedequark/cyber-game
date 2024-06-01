@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Opciones de Configuración{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>Opciones de Configuración</h1>
+    <div class="mt-4">
+        <a href="{{ url_for('company_setup_options.company_setup_options') }}" class="btn btn-primary btn-lg mx-2">Configurar Empresa</a>
+        <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-secondary btn-lg mx-2">Configurar Jugador</a>
+    </div>
+    <div class="mt-4">
+        <a href="{{ url_for('home.home') }}" class="btn btn-warning btn-lg mx-2">Volver</a>
+    </div>
+</div>
+{% endblock %}
