@@ -1,69 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}Configuración del Jugador{% endblock %}
+{% block title %}Configuración Manual del Jugador{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center">Configuración del Jugador</h1>
-    <form action="{{ url_for('player_setup.handle_player_setup') }}" method="post">
+    <h1 class="text-center">Configuración Manual</h1>
+    <form method="POST" action="{{ url_for('player_setup.handle_player_setup') }}">
         <div class="form-group">
             <label for="player_name">Nombre del Jugador:</label>
             <input type="text" class="form-control" id="player_name" name="player_name" required>
         </div>
         <div class="form-group">
             <label for="player_role">Rol:</label>
-            <select class="form-control" id="player_role" name="player_role" required>
-                <option value="Administrador de sistemas">Administrador de sistemas</option>
-                <option value="Especialista en seguridad">Especialista en seguridad</option>
-                <option value="Gerente de TI">Gerente de TI</option>
-                <option value="Consultor de seguridad">Consultor de seguridad</option>
-                <option value="Ingeniero de red">Ingeniero de red</option>
-                <option value="Desarrollador de software">Desarrollador de software</option>
-                <option value="Arquitecto de seguridad">Arquitecto de seguridad</option>
-                <option value="Auditor de seguridad">Auditor de seguridad</option>
-                <option value="Analista de seguridad">Analista de seguridad</option>
-                <option value="Especialista en cumplimiento">Especialista en cumplimiento</option>
-                <option value="Otros">Otros</option>
-            </select>
+            <input type="text" class="form-control" id="player_role" name="player_role" required>
         </div>
         <div class="form-group">
-            <label for="experience_level">Nivel de experiencia:</label>
-            <select class="form-control" id="experience_level" name="experience_level" required>
-                <option value="Principiante">Principiante</option>
-                <option value="Intermedio">Intermedio</option>
-                <option value="Avanzado">Avanzado</option>
-                <option value="Experto">Experto</option>
-            </select>
+            <label for="experience_level">Nivel de Experiencia:</label>
+            <input type="text" class="form-control" id="experience_level" name="experience_level" required>
         </div>
         <div class="form-group">
-            <label for="technical_skills">Habilidades técnicas:</label>
-            <select class="form-control" id="technical_skills" name="technical_skills[]" multiple required>
+            <label for="technical_skills">Habilidades Técnicas:</label>
+            <select class="form-control" id="technical_skills" name="technical_skills" multiple>
                 <option value="Redes">Redes</option>
                 <option value="Seguridad de aplicaciones">Seguridad de aplicaciones</option>
-                <option value="Criptografía">Criptografía</option>
-                <option value="Análisis forense">Análisis forense</option>
-                <option value="Respuesta a incidentes">Respuesta a incidentes</option>
-                <option value="Gestión de identidades y accesos">Gestión de identidades y accesos</option>
-                <option value="Monitoreo y análisis de seguridad">Monitoreo y análisis de seguridad</option>
-                <option value="Desarrollo seguro">Desarrollo seguro</option>
-                <option value="Penetration testing">Penetration testing</option>
+                <!-- Agrega otras opciones aquí -->
             </select>
         </div>
         <div class="form-group">
-            <label for="non_technical_skills">Habilidades no técnicas:</label>
-            <select class="form-control" id="non_technical_skills" name="non_technical_skills[]" multiple required>
+            <label for="non_technical_skills">Habilidades No Técnicas:</label>
+            <select class="form-control" id="non_technical_skills" name="non_technical_skills" multiple>
                 <option value="Comunicación">Comunicación</option>
-                <option value="Liderazgo">Liderazgo</option>
-                <option value="Gestión de proyectos">Gestión de proyectos</option>
-                <option value="Pensamiento crítico">Pensamiento crítico</option>
-                <option value="Resolución de problemas">Resolución de problemas</option>
                 <option value="Trabajo en equipo">Trabajo en equipo</option>
+                <!-- Agrega otras opciones aquí -->
             </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Guardar configuración</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-    <div class="mt-4 text-center">
-        <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-warning">Volver</a>
-    </div>
 </div>
 {% endblock %}
