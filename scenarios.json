@@ -1,0 +1,14 @@
+{
+  "escenario_alto_1": "scenarios/escenario_alto_1.json",
+  "escenario_alto_2": "scenarios/escenario_alto_2.json",
+  "escenario_alto_3": "scenarios/escenario_alto_3.json",
+  "escenario_medio_1": "scenarios/escenario_medio_1.json",
+  "escenario_medio_2": "scenarios/escenario_medio_2.json",
+  "escenario_medio_3": "scenarios/escenario_medio_3.json",
+  "escenario_bajo_1": "scenarios/escenario_bajo_1.json",
+  "escenario_bajo_2": "scenarios/escenario_bajo_2.json",
+  "escenario_bajo_3": "scenarios/escenario_bajo_3.json",
+  "escenario_experto_1": "scenarios/escenario_experto_1.json",
+  "escenario_experto_2": "scenarios/escenario_experto_2.json",
+  "escenario_experto_3": "scenarios/escenario_experto_3.json"
+}

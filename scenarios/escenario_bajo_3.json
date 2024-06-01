@@ -1,0 +1,25 @@
+{
+  "question": "¿Has recibido un reporte de phishing?",
+  "options": [
+    {
+      "text": "Sí, varios usuarios han reportado correos sospechosos",
+      "next": {
+        "question": "¿Cuál es tu siguiente paso?",
+        "options": [
+          {
+            "text": "Analizar los correos sospechosos",
+            "conclusion": "Los correos han sido analizados y confirmados como phishing. Se han tomado medidas para bloquearlos."
+          },
+          {
+            "text": "Informar a todos los empleados",
+            "conclusion": "Todos los empleados han sido informados sobre los correos de phishing. Se han implementado medidas preventivas."
+          }
+        ]
+      }
+    },
+    {
+      "text": "No, no se han reportado correos sospechosos",
+      "conclusion": "No se han detectado intentos de phishing. No se requiere ninguna acción adicional."
+    }
+  ]
+}

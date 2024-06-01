@@ -1,5 +1,5 @@
 import json
 
-def load_tree_data(filepath):
-    with open(filepath, 'r', encoding='utf-8') as file:
-        return json.load(file)
+def load_tree_data(file_path):
+    with open(file_path, encoding='utf-8') as f:
+        return json.load(f)

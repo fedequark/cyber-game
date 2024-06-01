@@ -1,0 +1,49 @@
+{
+  "question": "¿El sistema ha detectado actividad sospechosa?",
+  "options": [
+    {
+      "text": "Sí, hay actividad inusual",
+      "next": {
+        "question": "¿Qué tipo de actividad se ha detectado?",
+        "options": [
+          {
+            "text": "Acceso no autorizado a datos sensibles",
+            "next": {
+              "question": "¿Qué medida de seguridad implementas primero?",
+              "options": [
+                {
+                  "text": "Bloquear acceso del usuario sospechoso",
+                  "conclusion": "El acceso del usuario ha sido bloqueado. Se ha evitado una posible brecha de datos."
+                },
+                {
+                  "text": "Notificar al equipo de seguridad",
+                  "conclusion": "El equipo de seguridad ha sido notificado y está investigando la actividad sospechosa."
+                }
+              ]
+            }
+          },
+          {
+            "text": "Transferencia inusual de archivos",
+            "next": {
+              "question": "¿Qué acción tomas?",
+              "options": [
+                {
+                  "text": "Monitorear la transferencia",
+                  "conclusion": "La transferencia de archivos está siendo monitoreada. No se detectaron anomalías adicionales."
+                },
+                {
+                  "text": "Interrumpir la transferencia",
+                  "conclusion": "La transferencia ha sido interrumpida. Se está investigando el origen de la actividad."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "No, no hay actividad sospechosa",
+      "conclusion": "El sistema está funcionando normalmente. No se requiere ninguna acción."
+    }
+  ]
+}
