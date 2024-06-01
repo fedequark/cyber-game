@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Perfil de la Empresa{% endblock %}
+{% block title %}Perfil de la Empresa Generada{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
@@ -19,9 +19,11 @@
         </div>
     </div>
     <div class="mt-4 text-center">
-        <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-primary">Configurar Jugador</a>
+        {% if not player_configured %}
+            <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-primary">Configurar Jugador</a>
+        {% endif %}
         {% if player_configured %}
-            <a href="{{ url_for('handle_decision.handle_decision') }}" class="btn btn-success">Iniciar las Decisiones</a>
+            <a href="{{ url_for('confirmation.confirmation') }}" class="btn btn-success">Iniciar las Decisiones</a>
         {% else %}
             <button class="btn btn-success" disabled>Iniciar las Decisiones</button>
             <p class="text-danger mt-2">Debes configurar el jugador para poder iniciar las decisiones.</p>

@@ -11,6 +11,7 @@ from routes.setup_options import setup_options_bp
 from routes.company_setup_options import company_setup_options_bp
 from routes.player_setup_options import player_setup_options_bp
 from routes.player_setup import player_setup_bp
+from routes.confirmation import confirmation_bp
 
 app = Flask(__name__)
 app.secret_key = 'your_random_secret_key'
@@ -28,6 +29,7 @@ app.register_blueprint(setup_options_bp)
 app.register_blueprint(company_setup_options_bp)
 app.register_blueprint(player_setup_options_bp)
 app.register_blueprint(player_setup_bp)
+app.register_blueprint(confirmation_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
