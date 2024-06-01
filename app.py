@@ -24,7 +24,7 @@ app.secret_key = 'your_secret_key'
 try:
     with open('scenarios.json', encoding='utf-8') as f:
         scenarios = json.load(f)
-        print("Escenarios cargados correctamente:", scenarios)
+        # print("Escenarios cargados correctamente:", scenarios)
 except json.JSONDecodeError as e:
     print(f"Error al cargar scenarios.json: {e}")
     scenarios = {}

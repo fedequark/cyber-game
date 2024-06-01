@@ -52,7 +52,7 @@ def start_decision():
 @decision_bp.route('/show_question')
 def show_question():
     node = session.get('current_node')
-    # print(f"Mostrando pregunta para nodo: {node}")
+    print(f"Mostrando pregunta para nodo: {node}")
     if not node:
         print("Error: Nodo actual es None")
         return "Error: Nodo actual es None", 500
