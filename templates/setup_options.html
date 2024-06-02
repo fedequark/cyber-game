@@ -1,16 +1,39 @@
-{% extends "base.html" %}
-
-{% block title %}Opciones de Configuración{% endblock %}
-
-{% block content %}
-<div class="container text-center mt-5">
-    <h1>Opciones de Configuración</h1>
-    <div class="mt-4">
-        <a href="{{ url_for('company_setup_options.company_setup_options') }}" class="btn btn-primary btn-lg mx-2">Configurar Empresa</a>
-        <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-secondary btn-lg mx-2">Configurar Jugador</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Configuración</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Opciones de Configuración</h1>
+        <div class="row mt-4">
+            <div class="col-md-6 mb-3">
+                <a href="{{ url_for('company_setup_options.company_setup_options') }}" class="btn btn-primary btn-lg btn-block">Configurar Empresa</a>
+            </div>
+            <div class="col-md-6 mb-3">
+                <a href="{{ url_for('player_setup_options.player_setup_options') }}" class="btn btn-primary btn-lg btn-block">Configurar Jugador</a>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12 mb-3">
+                <a href="{{ url_for('setup_options.generate_random_all') }}" class="btn btn-success btn-lg btn-block">Generar Empresa y Jugador Aleatorios</a>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <a href="{{ url_for('home.home') }}" class="btn btn-warning btn-lg btn-block">Volver</a>
+            </div>
+        </div>
     </div>
-    <div class="mt-4">
-        <a href="{{ url_for('home.home') }}" class="btn btn-warning btn-lg mx-2">Volver</a>
-    </div>
-</div>
-{% endblock %}
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
