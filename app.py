@@ -23,10 +23,12 @@ with open('decision_tree.json', encoding='utf-8') as f:
     decision_tree = json.load(f)
 
 # Almacenar el árbol de decisiones en la sesión al inicio de la aplicación
-@app.before_first_request
+@app.before_request
 def initialize_decision_tree():
-    session['decision_tree'] = decision_tree
-    session['current_node'] = decision_tree
+    if 'decision_tree_initialized' not in session:
+        session['decision_tree'] = decision_tree
+        session['current_node'] = decision_tree
+        session['decision_tree_initialized'] = True
 
 # Registrar los Blueprints
 app.register_blueprint(home_bp)

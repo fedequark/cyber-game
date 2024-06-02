@@ -1,0 +1,165 @@
+{
+  "question": "¿Has detectado un posible incidente de seguridad?",
+  "options": [
+    {
+      "text": "Sí, ha ocurrido un incidente",
+      "next": {
+        "question": "Evalúa la gravedad del incidente",
+        "options": [
+          {
+            "text": "Alto riesgo (ataque ransomware activo)",
+            "next": {
+              "question": "Elige una acción inicial adecuada",
+              "options": [
+                {
+                  "text": "Aislar la red afectada (Perfil Técnico)",
+                  "next": {
+                    "question": "Aislar la red fue efectivo. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Notificar a la dirección y a las autoridades",
+                        "conclusion": "La dirección y las autoridades han sido notificadas. El incidente está bajo control."
+                      },
+                      {
+                        "text": "Iniciar análisis forense",
+                        "next": {
+                          "question": "Elige el tipo de análisis forense",
+                          "options": [
+                            {
+                              "text": "Análisis de disco",
+                              "conclusion": "Se ha iniciado un análisis forense de disco para determinar el alcance del ataque."
+                            },
+                            {
+                              "text": "Análisis de memoria",
+                              "conclusion": "Se ha iniciado un análisis forense de memoria para identificar rastros del ransomware."
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "text": "Notificar al equipo de TI (Perfil No Técnico)",
+                  "next": {
+                    "question": "El equipo de TI ha sido notificado. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Informar a los usuarios afectados",
+                        "conclusion": "Los usuarios afectados han sido informados y se están tomando medidas para mitigar el impacto."
+                      },
+                      {
+                        "text": "Coordinar con el equipo de comunicaciones",
+                        "conclusion": "El equipo de comunicaciones está gestionando la situación con los stakeholders y los medios."
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "text": "Riesgo medio (intento de phishing sin éxito)",
+            "next": {
+              "question": "Selecciona los pasos a seguir",
+              "options": [
+                {
+                  "text": "Escalar el incidente al equipo de respuesta (Perfil Técnico)",
+                  "next": {
+                    "question": "El equipo de respuesta está involucrado. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Revisar y actualizar las políticas de seguridad",
+                        "conclusion": "Las políticas de seguridad han sido revisadas y actualizadas para prevenir futuros intentos de phishing."
+                      },
+                      {
+                        "text": "Realizar una formación de concienciación",
+                        "conclusion": "Se ha realizado una formación de concienciación para educar a los empleados sobre los peligros del phishing."
+                      },
+                      {
+                        "text": "Implementar herramientas anti-phishing",
+                        "conclusion": "Se han implementado herramientas anti-phishing para fortalecer la defensa contra estos ataques."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "text": "Aplicar correcciones y monitorear (Perfil No Técnico)",
+                  "next": {
+                    "question": "Las correcciones se aplicaron. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Implementar medidas adicionales de seguridad",
+                        "conclusion": "Se han implementado medidas adicionales de seguridad y se está monitoreando la situación."
+                      },
+                      {
+                        "text": "Cerrar el incidente y documentar lecciones aprendidas",
+                        "conclusion": "El incidente ha sido cerrado y las lecciones aprendidas han sido documentadas."
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "text": "Bajo riesgo (malware detectado y contenido)",
+            "next": {
+              "question": "Selecciona los pasos a seguir",
+              "options": [
+                {
+                  "text": "Escalar el incidente al equipo de respuesta (Perfil Técnico)",
+                  "next": {
+                    "question": "El equipo de respuesta está involucrado. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Realizar un análisis completo del malware",
+                        "next": {
+                          "question": "Elige el enfoque del análisis",
+                          "options": [
+                            {
+                              "text": "Análisis estático",
+                              "conclusion": "Se ha realizado un análisis estático del malware y se han implementado las medidas correctivas necesarias."
+                            },
+                            {
+                              "text": "Análisis dinámico",
+                              "conclusion": "Se ha realizado un análisis dinámico del malware para comprender su comportamiento."
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "text": "Notificar a los usuarios afectados",
+                        "conclusion": "Los usuarios afectados han sido notificados y se les ha proporcionado asistencia."
+                      }
+                    ]
+                  }
+                },
+                {
+                  "text": "Aplicar correcciones y monitorear (Perfil No Técnico)",
+                  "next": {
+                    "question": "Las correcciones se aplicaron. ¿Qué haces a continuación?",
+                    "options": [
+                      {
+                        "text": "Reforzar las defensas y realizar formación de concienciación",
+                        "conclusion": "Se han reforzado las defensas y se ha realizado una formación de concienciación."
+                      },
+                      {
+                        "text": "Cerrar el incidente y documentar lecciones aprendidas",
+                        "conclusion": "El incidente ha sido cerrado y las lecciones aprendidas han sido documentadas."
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "No, es una falsa alarma",
+      "conclusion": "No se detectó ningún incidente real. No se requieren acciones adicionales."
+    }
+  ]
+}
