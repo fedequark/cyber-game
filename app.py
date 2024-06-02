@@ -56,7 +56,9 @@ use_database = app.config['USE_DATABASE']
 if use_database:
     app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI']
     db.init_app(app)
-    app.register_blueprint(scenarios_bp)
+    with app.app_context():
+        db.create_all()
+    app.register_blueprint(scenarios_bp, url_prefix='/scenarios')
     app.register_blueprint(decision_extended_bp)
 
 @app.route('/')

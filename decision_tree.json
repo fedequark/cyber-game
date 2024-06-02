@@ -32,9 +32,17 @@
                             {
                               "text": "Análisis de memoria",
                               "conclusion": "Se ha iniciado un análisis forense de memoria para identificar rastros del ransomware."
+                            },
+                            {
+                              "text": "Análisis de red",
+                              "conclusion": "Se ha iniciado un análisis forense de red para identificar la fuente y la extensión del ataque."
                             }
                           ]
                         }
+                      },
+                      {
+                        "text": "Restaurar desde copias de seguridad",
+                        "conclusion": "Se ha restaurado el sistema desde copias de seguridad. El incidente está bajo control."
                       }
                     ]
                   }
@@ -51,6 +59,10 @@
                       {
                         "text": "Coordinar con el equipo de comunicaciones",
                         "conclusion": "El equipo de comunicaciones está gestionando la situación con los stakeholders y los medios."
+                      },
+                      {
+                        "text": "Activar el plan de respuesta a incidentes",
+                        "conclusion": "El plan de respuesta a incidentes ha sido activado. El equipo de TI está gestionando la situación."
                       }
                     ]
                   }
@@ -95,6 +107,10 @@
                       {
                         "text": "Cerrar el incidente y documentar lecciones aprendidas",
                         "conclusion": "El incidente ha sido cerrado y las lecciones aprendidas han sido documentadas."
+                      },
+                      {
+                        "text": "Realizar una auditoría de seguridad",
+                        "conclusion": "Se ha realizado una auditoría de seguridad para identificar posibles vulnerabilidades."
                       }
                     ]
                   }
@@ -124,6 +140,10 @@
                             {
                               "text": "Análisis dinámico",
                               "conclusion": "Se ha realizado un análisis dinámico del malware para comprender su comportamiento."
+                            },
+                            {
+                              "text": "Análisis híbrido",
+                              "conclusion": "Se ha realizado un análisis híbrido del malware, combinando enfoques estáticos y dinámicos."
                             }
                           ]
                         }
@@ -131,6 +151,10 @@
                       {
                         "text": "Notificar a los usuarios afectados",
                         "conclusion": "Los usuarios afectados han sido notificados y se les ha proporcionado asistencia."
+                      },
+                      {
+                        "text": "Implementar medidas preventivas adicionales",
+                        "conclusion": "Se han implementado medidas preventivas adicionales para evitar futuros incidentes."
                       }
                     ]
                   }
@@ -147,6 +171,10 @@
                       {
                         "text": "Cerrar el incidente y documentar lecciones aprendidas",
                         "conclusion": "El incidente ha sido cerrado y las lecciones aprendidas han sido documentadas."
+                      },
+                      {
+                        "text": "Realizar una evaluación post-incidente",
+                        "conclusion": "Se ha realizado una evaluación post-incidente para mejorar la respuesta futura."
                       }
                     ]
                   }
