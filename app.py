@@ -15,15 +15,21 @@ from routes.player_setup import player_setup_bp
 from routes.confirmation import confirmation_bp
 from routes.decision import decision_bp
 
-# Importar las nuevas rutas y modelos extendidos
-from models_extended import db
-from routes.scenarios import scenarios_bp
-from routes.decision_extended import decision_extended_bp
-
 app = Flask(__name__)
-app.config.from_object('config.DevelopmentConfig')
+app.secret_key = 'your_secret_key'
 
-# Registrar los Blueprints comunes
+# Cargar el archivo JSON
+with open('decision_tree.json', encoding='utf-8') as f:
+    decision_tree = json.load(f)
+
+# Almacenar el árbol de decisiones en la sesión al inicio de cada solicitud
+@app.before_request
+def initialize_decision_tree():
+    if 'decision_tree' not in session:
+        session['decision_tree'] = decision_tree
+        session['current_node'] = decision_tree
+
+# Registrar los Blueprints
 app.register_blueprint(home_bp)
 app.register_blueprint(company_setup_bp)
 app.register_blueprint(generate_random_company_bp)
@@ -38,28 +44,6 @@ app.register_blueprint(player_setup_options_bp)
 app.register_blueprint(player_setup_bp)
 app.register_blueprint(confirmation_bp)
 app.register_blueprint(decision_bp)
-
-# Cargar el archivo JSON
-with open('decision_tree.json', encoding='utf-8') as f:
-    decision_tree = json.load(f)
-
-# Almacenar el árbol de decisiones en la sesión al inicio de la aplicación
-@app.before_request
-def initialize_decision_tree():
-    if 'decision_tree_initialized' not in session:
-        session['decision_tree'] = decision_tree
-        session['current_node'] = decision_tree
-        session['decision_tree_initialized'] = True
-
-# Registrar los Blueprints y configurar la base de datos si se usa el workflow basado en la base de datos
-use_database = app.config['USE_DATABASE']
-if use_database:
-    app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI']
-    db.init_app(app)
-    with app.app_context():
-        db.create_all()
-    app.register_blueprint(scenarios_bp, url_prefix='/scenarios')
-    app.register_blueprint(decision_extended_bp)
 
 @app.route('/')
 def index():
