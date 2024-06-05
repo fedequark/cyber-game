@@ -2,7 +2,7 @@
   "question": "¿Has detectado un posible incidente de seguridad?",
   "options": [
     {
-      "text": "Sí, ha ocurrido un incidente",
+      "text": "Sí, ha ocurrido un incidente.",
       "next": {
         "question": "Evalúa la gravedad del incidente",
         "options": [
